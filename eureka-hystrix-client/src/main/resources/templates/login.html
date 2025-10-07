@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>用户登录界面</title>
+  <link th:href="@{/login/css/bootstrap.min.css}" rel="stylesheet">
+  <link th:href="@{/login/css/signin.css}" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            height: 100%;
+        }
+        body {
+            height: 100%;
+        }
+        .container {
+            height: 100%;
+            background-image: linear-gradient(to right, #999999, #330867);
+        }
+        .login-wrapper {
+            background-color: bisque;
+            width: 358px;
+            height: 588px;
+            border-radius: 15px;
+            padding: 0 50px;
+            position: relative;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .header {
+            font-size: 38px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 200px;
+        }
+        .input-item {
+            display: block;
+            width: 100%;
+            margin-bottom: 20px;
+            border: 0;
+            padding: 10px;
+            border-bottom: 1px solid rgb(128,125,125);
+            font-size: 15px;
+            outline: none;
+        }
+        .input-item::placeholder {
+            text-transform: uppercase;
+        }
+        .btn {
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            margin-top: 40px;
+            background-image: linear-gradient(to right,#a6c1ee, #fbc2eb);
+            color: #fff;
+        }
+        .msg {
+            text-align: center;
+            line-height: 88px;
+        }
+        a {
+            text-decoration-line: none;
+            color: #abc1ee;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="login-wrapper">
+<form class="form-signin form-wrapper" th:action="@{/userLogin}" th:method="post" >
+
+  <h1 class="h3 mb-3 font-weight-normal header">请登录</h1>
+  <div th:if="${param.error}" style="color: red;height: 40px;text-align: left;font-size: 1.1em">
+    <img th:src="@{/login/img/loginError.jpg}" width="20px">用户名或密码错误，请重新登录！
+  </div>
+  <input type="text" name="name" class="form-control"
+         placeholder="请输入用户名" required="" autofocus="">
+  <input type="password" name="pwd" class="form-control"
+         placeholder="请输入密码" required="">
+  <label>
+    <input type="checkbox" name="rememberme"> 记住我
+  </label>
+
+  <button class="btn btn-lg btn-primary btn-block" type="submit" >登录</button>
+
+  <p class="mt-5 mb-3 text-muted">Copyright© 2019-2020</p>
+</form>
+    </div>
+</div>
+</body>
+</html>

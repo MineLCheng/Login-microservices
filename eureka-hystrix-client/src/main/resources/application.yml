@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: eureka-hystrix-client
+  thymeleaf:
+    cache: false
+    check-template: true
+    check-template-location: true
+    servlet:
+      content-type: text/html
+    enabled: true
+    encoding: UTF-8
+    mode: HTML5
+    prefix: classpath:/templates/
+    suffix: .html
+  datasource:
+    url: jdbc:mysql://192.168.119.128:3306/springbootdata?serverTimezone=UTC
+    name: root
+    password: 345209
+server:
+  port: 8764
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7000/eureka
+logging:
+  level:
+    com.example.demo4.service.FeignService: DEBUG
+feign:
+  hystrix:
+    enabled: true
+
+
